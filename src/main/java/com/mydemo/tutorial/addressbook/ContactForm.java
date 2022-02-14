@@ -20,6 +20,7 @@ import com.vaadin.v7.ui.TextField;
  * Use BeanFieldGroup to bind data fields from DTO to UI fields.
  * Similarly named field by naming convention or customized
  * with @PropertyId annotation.
+ * add more code
  */
 public class ContactForm extends FormLayout {
 

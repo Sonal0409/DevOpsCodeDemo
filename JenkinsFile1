@@ -1,4 +1,4 @@
-trigger inpipeline{
+triggsfsdfer inpipeline{
     tools{
         jdk 'myjava'
         maven 'mymaven131'

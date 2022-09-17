@@ -1,4 +1,4 @@
-triggsfsdfer inpipeline{
+new commit here  inpipeline{
     tools{
         jdk 'myjava'
         maven 'mymaven131'

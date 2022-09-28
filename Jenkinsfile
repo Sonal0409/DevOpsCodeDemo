@@ -44,11 +44,11 @@ pipeline{
                   sh 'mvn package'
               }
           }
-	  stage('Deploy')
-	      steps{
-		  echo 'Deployed on production Server'
+	       stage('Deploy'){
+	          steps{
+		            echo 'Deployed on production Server'
 	      	   }
-	  }   
-          
-      }
+            }   
+	   
+       
 }

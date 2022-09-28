@@ -1,53 +1,50 @@
 pipeline{
+    
     tools{
         jdk 'myjava'
         maven 'mymaven'
     }
-	agent any
-      stages{
-           stage('Checkout'){
-	    
-               steps{
-		 echo 'cloning..'
-                 git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
-              }
-          }
-          stage('Compile'){
-             
-              steps{
-                  echo 'complie the code..'
-                  sh 'mvn compile'
-	      }
-          }
-          stage('CodeReview'){
-		  
-              steps{
-		    
-		  echo 'codeReview'
-                  sh 'mvn pmd:pmd'
-              }
-          }
-           stage('UnitTest'){
-		  
-              steps{
-	         
-                  sh 'mvn test'
-              }
-          
-          }
+// agent section is mandatory    
+    agent any
+    
+    stages{
         
-          stage('Package'){
-		  
-              steps{
-		  
-                  sh 'mvn package'
-              }
-          }
-          stage('Deploy'){
-              steps{
-                  echo 'Deploy on production server'
-              }
-          }
-	       
-	        
+        stage('Clone the repo'){
+            steps{
+                git 'https://github.com/gsvaidwan/DevOpsCodeDemo.git'
+            }
+        }
+        stage('Compile the code'){
+            steps{
+                sh 'mvn compile'
+            }
+        }
+        stage('Code review process'){
+            steps{
+                sh 'mvn pmd:pmd'
+            }
+        }
+        stage('Unit Testing'){
+            steps{
+                sh 'mvn test'
+            }
+            post{
+                success{
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Package'){
+            steps{
+                sh 'mvn package'
+            }
+            
+        }
+        stage('Deploy'){
+            steps{
+                echo 'Deploy on prod server'
+            }
+        }
+    }
+    
 }

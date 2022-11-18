@@ -3,7 +3,7 @@ new commit here  inpipeline{
         jdk 'myjava'
         maven 'mymaven131'
     }
-    agent any
+    agent any new chnage
     stages{
         stage('Checkout on git'){
             agent any

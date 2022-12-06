@@ -1,50 +1,50 @@
-
 pipeline{
+ 
     tools{
-       
         maven 'mymaven'
     }
-	agent any
-      stages{
-           stage('Checkout'){
-	    
-               steps{
-		 echo 'cloning'
-                 git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
-              }
-          }
-          stage('Compile'){
-             
-              steps{
-                  echo 'complie the code..'
-                  sh 'mvn compile'
-	      }
-          }
-          stage('CodeReview'){
-		  
-              steps{
-		    
-		  echo 'codeReview'
-                  sh 'mvn pmd:pmd'
-              }
-          }
-           stage('UnitTest'){
-		  
-              steps{
-	         
-                  sh 'mvn test'
-              }
-          
-          }
-        
-          stage('Package'){
-		  
-              steps{
-		  
-                  sh 'mvn package'
-              }
-          }
-	     
-          
-      }
+    agent any
+    stages
+    {
+        stage('Clone A Repo')
+        {
+            steps{
+                git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
+            }
+        }
+        stage('Compile the Code')
+        {
+            steps{
+                sh 'mvn compile'
+            }
+        }
+        stage('Code Review')
+        {
+            steps{
+                sh 'mvn pmd:pmd'
+            }
+        }
+        stage('Unit Test')
+        {
+            steps{
+                sh 'mvn test'
+            }
+        }
+        post{
+            success {
+                junit 'target/surefire-reports/*.xml'
+            }
+        }
+        stage('Package')
+        {
+            steps{
+                sh 'mvn package'
+            }
+        }
+        post{
+            success {
+                jacoco()
+            }
+        }
+    } 
 }

@@ -5,7 +5,7 @@ sdfdgfdfgnew commit here  inpipeline{
     }
     agent any new chnage
     stages{
-        stage('Checkout on git'){
+        stage('Checkout sffdon git'){
             agent any
             steps{
                 git 'https://github.com/devops-trainer/DevOpsClassCodes.git'

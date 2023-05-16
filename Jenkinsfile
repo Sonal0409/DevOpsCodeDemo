@@ -9,14 +9,14 @@ pipeline{
            stage('Checkout'){
 	    
                steps{
-		 echo 'cloning'
+		 echo 'cloning the repo
                  git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
               }
           }
           stage('Compile'){
              
               steps{
-                  echo 'complie the code..'
+                  echo 'complie the code again..'
                   sh 'mvn compile'
 	      }
           }

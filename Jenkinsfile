@@ -9,7 +9,7 @@ pipeline{
            stage('Checkout'){
 	    
                steps{
-		 echo 'cloning the repo
+		 echo 'cloning the repo'
                  git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
               }
           }

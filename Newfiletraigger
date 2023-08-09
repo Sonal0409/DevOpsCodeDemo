@@ -10,6 +10,8 @@ This is done on 06 augustPoll SCM trigger
 make a chnage for polling
 does a commit
 
+make a commit in repo
+
 trigger
 
 job should run as webhook has been set

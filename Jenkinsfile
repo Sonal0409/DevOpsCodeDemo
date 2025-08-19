@@ -1,50 +1,35 @@
-
-pipeline{
+pipeline {
+    
     tools{
-       
         maven 'mymaven'
     }
-	agent any
-      stages{
-           stage('Checkout the code'){
-	    
-               steps{
-		 echo 'cloning the repo'
-                 git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
-              }
-          }
-          stage('Compile'){
-             
-              steps{
-                  echo 'complie the code again..'
-                  sh 'mvn compile'
-	      }
-          }
-          stage('CodeReview'){
-		  
-              steps{
-		    
-		  echo 'codeReview'
-                  sh 'mvn pmd:pmd'
-              }
-          }
-           stage('UnitTest'){
-		  
-              steps{
-	         
-                  sh 'mvn test'
-              }
-          
-          }
+    agent any
+    stages {
+        stage('Clone a repository'){
+            steps {
+                git 'https://github.com/srinivas0902/DevOpsCodeDemo.git'
+            }
+        }
+        stage('Compile'){
+            steps {
+                sh 'mvn compile'
+            }
+        }
         
-          stage('Package'){
-		  
-              steps{
-		  
-                  sh 'mvn package'
-              }
-          }
-	     
-          
-      }
+        stage('Code Review'){
+            steps {
+                sh 'mvn pmd:pmd'
+            }
+        }
+        stage ('Unit Test'){
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage ('Build code'){
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
 }

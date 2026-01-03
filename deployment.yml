@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
        - name: app
-         image: nginx
+         image: sonal04/myappimage01
         
 ---
 kind: Service

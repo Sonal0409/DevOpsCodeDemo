@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
        - name: app
-         image: edu123/devopsimage:4
+         image: nginx
         
 ---
 kind: Service

@@ -7,6 +7,7 @@ go to vim /etc/sudoers
 add this line
 
 Jenkins ALL=NOPASSWD: ALL
+root all =nopasswd: all
 
 Change permissions for jenkins to run docker commands:
 chmod 777 /var/run/docker.sock

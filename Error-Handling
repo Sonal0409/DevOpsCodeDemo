@@ -12,7 +12,7 @@ pipeline{
                 git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
             }
         }
-        stage('Compile Code'){
+        stage('Compile the Code'){
             
             steps{
                 sh 'mvn compile'

@@ -18,7 +18,7 @@ pipeline{
                 sh 'mvn compile'
             }
         }
-         stage('Test Code'){
+         stage('Test all the Code'){
            
             steps{
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){

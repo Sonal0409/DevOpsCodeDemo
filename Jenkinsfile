@@ -6,7 +6,7 @@ pipeline{
     }
 	agent any
       stages{
-           stage('Checkout the code'){
+           stage('Checkout  code'){
 	    
                steps{
 		 echo 'cloning the repo'

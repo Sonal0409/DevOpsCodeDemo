@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
        - name: app
-         image: sonal04/myprojectimage:latest
+         image: sonal04/myimagecicd:latest
         
 ---
 kind: Service
